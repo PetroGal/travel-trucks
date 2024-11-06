@@ -4,15 +4,19 @@ import "./App.module.css"
 import HomePage from "../../pages/HomePage/HomePage.jsx"
 import CatalogPage from "../../pages/CatalogPage/CatalogPage.jsx"
 import CamperDetailPage from "../../pages/CamperDetailPage/CamperDetailPage.jsx"
+import Header from "../Header/Header.jsx"
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/catalog' element={<CatalogPage />} />
-        <Route path='/catalog/:id' element={<CamperDetailPage />} />
-      </Routes>
+      <Header />
+      <main>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/catalog' element={<CatalogPage />} />
+          <Route path='/catalog/:id' element={<CamperDetailPage />} />
+        </Routes>
+      </main>
     </Router>
   )
 }
