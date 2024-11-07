@@ -9,27 +9,35 @@ const Header = () => {
       <div className={css.headerContainer}>
         <nav className={css.navHeader}>
           <NavLink to='/' className={css.headerLogo}>
-            <img src={logo} alt='TravelTrucks Logo' width='136' height='16' />
+            <img
+              className={css.navImg}
+              src={logo}
+              alt='TravelTrucks Logo'
+              width='136'
+              height='16'
+            />
           </NavLink>
           <ul className={css.headerMenuList}>
-            <NavLink
-              to='/'
-              className={({ isActive }) =>
-                isActive
-                  ? `${css.ListItemHome} ${css.activeLink}`
-                  : css.ListItemHome
-              }
-              end
-            >
-              Home
-            </NavLink>
+            <li className={css.headerListItem}>
+              <NavLink
+                to='/'
+                className={({ isActive }) =>
+                  isActive
+                    ? `${css.headerLink} ${css.activeLink}`
+                    : css.headerLink
+                }
+                end
+              >
+                Home
+              </NavLink>
+            </li>
             <li className={css.headerListItem}>
               <NavLink
                 to='/catalog'
                 className={({ isActive }) =>
                   isActive
-                    ? `${css.ListItemHome} ${css.activeLink}`
-                    : css.ListItemHome
+                    ? `${css.headerLink} ${css.activeLink}`
+                    : css.headerLink
                 }
               >
                 Catalog

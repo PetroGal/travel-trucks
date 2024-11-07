@@ -7,17 +7,23 @@
   height: 72px;
   padding: 24px 64px;
   align-items: center;
-  gap: 450px;
+  /* gap: 450px; */
   margin: 0 auto;
 }
 
 .navHeader {
   display: flex;
-  gap: 450px;
+  /* gap: 450px; */
+  align-items: center;
+}
+
+.navImg {
+  margin-right: 450px;
 }
 
 .headerMenuList {
   display: flex;
+  gap: 32px;
 }
 
 .headerListItem {
@@ -31,7 +37,7 @@
   text-decoration: none;
 }
 
-.ListItemHome {
+.listItemHome {
   margin-right: 32px;
 }
 
