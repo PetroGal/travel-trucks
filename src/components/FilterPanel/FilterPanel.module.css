@@ -92,6 +92,7 @@
   justify-content: flex-start;
   list-style-type: none;
   padding: 0;
+  margin-bottom: 32px;
 }
 
 .equipmentFilterItem {

@@ -1,4 +1,3 @@
-// src/components/FilterPanel/FilterPanel.jsx
 import React, { useState } from "react"
 import css from "./FilterPanel.module.css"
 import sprite from "../../images/icons.svg"

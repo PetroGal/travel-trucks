@@ -18,24 +18,7 @@ const CatalogPage = () => {
       .catch((error) => console.error("Error fetching campers:", error))
   }, [])
 
-  return (
-    <section className={css.catalogPage}>
-      <div className={`${css.container} ${css.catalogContainer}`}>
-        <aside className={css.filterPanel}>
-          <FilterPanel />
-        </aside>
-
-        <div className={css.camperList}>
-          {[1, 2, 3, 4].map((id) => (
-            <CamperCard key={id} />
-          ))}
-          <button className={css.loadMoreButton} type='button'>
-            Load More
-          </button>
-        </div>
-      </div>
-    </section>
-  )
+  // ... rest of the component
 }
 
 export default CatalogPage

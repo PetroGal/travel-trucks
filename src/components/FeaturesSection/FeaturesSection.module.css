@@ -1,0 +1,131 @@
+.featuresContainer {
+  padding: 44px 52px;
+}
+
+.featureOptions {
+  width: 527px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 100px;
+}
+
+.featureOptionsItem {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.optionsLabel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.optionBox {
+  display: flex;
+  height: 48px;
+  padding: 12px 18px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  background: var(--Badges, #f2f4f7);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.optionIcon {
+  width: 20px;
+  height: 20px;
+  fill: #101828;
+  box-sizing: border-box;
+}
+
+.optionsLabel span {
+  color: var(--Main, #101828);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+
+.optionAc {
+  text-transform: uppercase;
+}
+
+.vehicleHeading {
+  color: var(--Main, #101828);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.vehicleDivider {
+  width: 527px;
+  border: none;
+  height: 1px;
+  background-color: #dadde1;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.vehicleHeading {
+  color: var(--Main, #101828);
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.vehicleTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vehicleTable td {
+  /* padding: 0;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  color: #101828; */
+  padding: 8px 0; /* Adjust padding as needed */
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  color: #101828;
+  text-align: left; /* Ensures left alignment */
+}
+
+.vehicleTable tr td:first-child {
+  padding-right: auto;
+  text-align: left; /* Ensures the first column aligns left */
+}
+
+.vehicleTable tr td:last-child {
+  padding-left: auto;
+  text-align: right; /* Ensures the last column aligns right */
+}
+
+.tbodyRow {
+  color: var(--Main, #101828);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}

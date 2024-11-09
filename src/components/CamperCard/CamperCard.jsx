@@ -17,7 +17,7 @@ const CamperCard = () => {
           <p className={css.infoText}>Mavericks</p>
           <p className={css.infoText}>€8000.00</p>
         </div>
-        <div className={css.reviewsWrepper}>
+        <div className={css.reviewsWrapper}>
           <svg className={css.starIcon} width='16' height='16'>
             <use href={`${sprite}#icon-star`}></use>
           </svg>
@@ -68,7 +68,6 @@ const CamperCard = () => {
               </div>
             </label>
           </li>
-
           <li className={css.camperOptionsItem}>
             <label htmlFor='ac' className={css.optionsLabel}>
               <div className={css.optionBox}>

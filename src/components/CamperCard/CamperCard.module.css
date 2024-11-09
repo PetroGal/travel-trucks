@@ -3,8 +3,9 @@
   padding: 24px;
   margin-bottom: 24px;
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  border: 1px solid var(--Gray-light, #dadde1);
+  background: var(--White, #fff);
 }
 
 .imgWrapper {
@@ -24,7 +25,7 @@
 }
 
 .infoText {
-  color: var(--Main, #101828);
+  color: #101828;
   font-family: Inter;
   font-size: 24px;
   font-style: normal;
@@ -32,7 +33,7 @@
   line-height: 1.33;
 }
 
-.reviewsWrepper {
+.reviewsWrapper {
   display: flex;
   align-items: center;
   margin-bottom: 24px;

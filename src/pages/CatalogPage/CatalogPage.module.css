@@ -1,3 +1,7 @@
+.camperDetailPage {
+  background: var(--White, #fff);
+}
+
 .catalogPage {
   background: var(--White, #fff);
 }

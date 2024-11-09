@@ -1,0 +1,129 @@
+.container {
+  max-width: 641px;
+  height: 588px;
+  padding-left: 64px;
+  padding-right: 64px;
+  margin: 0 auto;
+}
+
+.featuresContainer {
+  display: flex;
+  gap: 64px;
+  padding-top: 48px;
+  padding-bottom: 52px;
+}
+
+.bookingTitle {
+  color: var(--Main, #101828);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.bookingSubTitle {
+  color: var(--Gray, #6c717b);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  /* gap: 16px; */
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputError {
+  border: 1px solid red;
+}
+
+/* .inputWrapper {
+  margin-bottom: 24px;
+} */
+
+input {
+  display: flex;
+  width: 527px;
+  height: 60px;
+  padding: 18px 337px 18px 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background: var(--Inputs, #f7f7f7);
+  border: none;
+}
+
+textarea {
+  display: flex;
+  width: 527px;
+  padding: 18px 308px 76px 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 10px;
+  background: var(--Inputs, #f7f7f7);
+  border: none;
+  margin-bottom: 24px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6c717b;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.errorText {
+  color: red;
+  font-size: 12px;
+}
+
+.submitButton {
+  background-color: #e44848;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #d43b3b;
+}
+
+.formBtn {
+  display: flex;
+  width: 166px;
+  padding: 16px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background: var(--Button, #e44848);
+  color: var(--White, #fff);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.08px;
+  border: none;
+  margin: 0 auto;
+}
