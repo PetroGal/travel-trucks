@@ -7,7 +7,11 @@ import "../../index.css"
 
 const CatalogPage = () => {
   const [campers, setCampers] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
+
+  const itemsPerPage = 4
 
   const [filters, setFilters] = useState({
     location: "",
@@ -29,33 +33,47 @@ const CatalogPage = () => {
     if (filters.equipment.includes("bathroom"))
       params.append("bathroom", "true")
 
-    const apiUrl = `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers?${params.toString()}`
-    console.log(
-      `URL after clicking ${params.toString() || filters.equipment}`,
-      apiUrl
-    )
+    const apiUrl = `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers?${params.toString()}&page=${page}&limit=${itemsPerPage}`
 
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched data:", data)
-        setCampers(Array.isArray(data.items) ? data.items : [])
+        if (data && Array.isArray(data.items)) {
+          if (data.items.length < itemsPerPage) {
+            setHasMore(false)
+          }
+          setCampers((prevCampers) => [...prevCampers, ...data.items])
+        } else if (Array.isArray(data)) {
+          if (data.length < itemsPerPage) {
+            setHasMore(false)
+          }
+          setCampers((prevCampers) => [...prevCampers, ...data])
+        } else {
+          setHasMore(false)
+        }
       })
       .catch((error) => {
         console.error("Error fetching campers:", error)
       })
       .finally(() => setLoading(false))
-  }, [filters])
+  }, [filters, page])
 
   useEffect(() => {
-    console.log("Campers state before rendering:", campers)
-  }, [campers])
+    setCampers([])
+    setPage(1)
+    setHasMore(true)
+  }, [filters])
 
   useEffect(() => {
     fetchFilteredCampers()
   }, [fetchFilteredCampers])
 
   console.log("Campers state before rendering:", campers)
+
+  const loadMoreCampers = () => {
+    setPage((prevPage) => prevPage + 1)
+  }
 
   return (
     <section className={css.catalogPage}>
@@ -70,14 +88,20 @@ const CatalogPage = () => {
           ) : (
             <>
               {Array.isArray(campers) && campers.length > 0 ? (
-                campers.map((camper) => {
-                  return <CamperCard key={camper.id} camper={camper} />
+                campers.map((camper, index) => {
+                  return (
+                    <CamperCard key={`${camper.id}-${index}`} camper={camper} />
+                  )
                 })
               ) : (
                 <p>No campers available.</p>
               )}
-              {Array.isArray(campers) && campers.length > 0 && (
-                <button className={css.loadMoreButton} type='button'>
+              {hasMore && !loading && (
+                <button
+                  className={css.loadMoreButton}
+                  type='button'
+                  onClick={loadMoreCampers}
+                >
                   Load More
                 </button>
               )}
