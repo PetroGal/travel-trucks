@@ -1,17 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit"
-
-// Temporary placeholder reducer
-const placeholderReducer = (state = {}, action) => {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
+import campersReducer from "./campersSlice"
 
 export const store = configureStore({
   reducer: {
-    placeholder: placeholderReducer,
+    campers: campersReducer,
   },
 })
-
-export default store

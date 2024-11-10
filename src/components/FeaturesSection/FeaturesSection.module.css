@@ -99,25 +99,21 @@
 }
 
 .vehicleTable td {
-  /* padding: 0;
-  font-family: Inter, sans-serif;
-  font-size: 16px;
-  color: #101828; */
-  padding: 8px 0; /* Adjust padding as needed */
+  padding: 8px 0;
   font-family: Inter, sans-serif;
   font-size: 16px;
   color: #101828;
-  text-align: left; /* Ensures left alignment */
+  text-align: left;
 }
 
 .vehicleTable tr td:first-child {
   padding-right: auto;
-  text-align: left; /* Ensures the first column aligns left */
+  text-align: left;
 }
 
 .vehicleTable tr td:last-child {
   padding-left: auto;
-  text-align: right; /* Ensures the last column aligns right */
+  text-align: right;
 }
 
 .tbodyRow {

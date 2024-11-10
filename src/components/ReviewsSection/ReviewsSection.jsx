@@ -1,6 +1,6 @@
 import React from "react"
 import css from "./ReviewsSection.module.css"
-import sprite from "../../images/icons.svg" // Assuming you have SVG icons here
+import sprite from "../../images/icons.svg"
 
 const ReviewsSection = () => {
   const reviews = [
@@ -14,7 +14,6 @@ const ReviewsSection = () => {
       rating: 3,
       text: "A decent option for solo travel. The Mavericks provided a comfortable stay, but the lack of bathroom facilities was a drawback. Good for short trips where simplicity is preferred.",
     },
-    // Add more reviews if needed
   ]
 
   const renderStars = (rating) => {
@@ -67,41 +66,3 @@ const ReviewsSection = () => {
 }
 
 export default ReviewsSection
-
-// import React from "react"
-// import css from "./ReviewsSection.module.css"
-
-// const ReviewsSection = () => {
-//   const reviews = [
-//     {
-//       name: "Alice",
-//       rating: 5,
-//       text: "The Mavericks panel truck was a perfect choice for my solo road trip. Compact, easy to drive, and had all the essentials. The kitchen facilities were sufficient, and the overall experience was fantastic.",
-//     },
-//     {
-//       name: "Bob",
-//       rating: 4,
-//       text: "A decent option for solo travel. The Mavericks provided a comfortable stay, but the lack of bathroom facilities was a drawback. Good for short trips where simplicity is preferred.",
-//     },
-//     // Add more reviews if needed
-//   ]
-
-//   return (
-//     <div className={css.reviewsSection}>
-//       {reviews.map((review, index) => (
-//         <div key={index} className={css.reviewItem}>
-//           <div className={css.userInfo}>
-//             <span className={css.userIcon}>{review.name[0]}</span>
-//             <div>
-//               <span className={css.userName}>{review.name}</span>
-//               <div className={css.userRating}>{"⭐".repeat(review.rating)}</div>
-//             </div>
-//           </div>
-//           <p className={css.reviewText}>{review.text}</p>
-//         </div>
-//       ))}
-//     </div>
-//   )
-// }
-
-// export default ReviewsSection

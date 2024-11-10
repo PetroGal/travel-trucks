@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import css from "./CamperDetailPage.module.css"
-// import ImageCarousel from "../../components/ImageCarousel/ImageCarousel.jsx"
 import FeaturesSection from "../../components/FeaturesSection/FeaturesSection.jsx"
 import ReviewsSection from "../../components/ReviewsSection/ReviewsSection.jsx"
 import BookingForm from "../../components/BookingForm/BookingForm.jsx"
@@ -9,10 +8,6 @@ import sprite from "../../images/icons.svg"
 
 const CamperDetailPage = () => {
   const [activeTab, setActiveTab] = useState("features")
-
-  // if (!camper) return null
-
-  // const gallery = camper.gallery
 
   return (
     <section className={css.camperDetailPage}>
@@ -73,30 +68,6 @@ const CamperDetailPage = () => {
             )}
           </button>
         </div>
-        {/* <div className={css.tabSection}>
-          <button
-            className={`${css.tabButton} ${
-              activeTab === "features" ? css.activeTab : ""
-            }`}
-            onClick={() => setActiveTab("features")}
-          >
-            Features
-            {activeTab === "features" && (
-              <div className={css.activeTabIndicator}></div>
-            )}
-          </button>
-          <button
-            className={`${css.tabButton} ${
-              activeTab === "reviews" ? css.activeTab : ""
-            }`}
-            onClick={() => setActiveTab("reviews")}
-          >
-            Reviews
-            {activeTab === "reviews" && (
-              <div className={css.activeTabIndicator}></div>
-            )}
-          </button>
-        </div> */}
 
         <hr className={css.customDivider} />
 
@@ -117,22 +88,5 @@ const CamperDetailPage = () => {
     </section>
   )
 }
-
-// CamperDetailPage.propTypes = {
-//   camper: PropTypes.shape({
-//     id: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     price: PropTypes.number.isRequired,
-//     rating: PropTypes.number,
-//     location: PropTypes.string,
-//     description: PropTypes.string,
-//     gallery: PropTypes.arrayOf(
-//       PropTypes.shape({
-//         thumb: PropTypes.string.isRequired,
-//         original: PropTypes.string.isRequired,
-//       })
-//     ).isRequired,
-//   }).isRequired,
-// }
 
 export default CamperDetailPage

@@ -16,7 +16,6 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission logic
   }
 
   return (
