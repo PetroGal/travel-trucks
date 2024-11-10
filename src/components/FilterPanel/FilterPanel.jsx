@@ -1,13 +1,41 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 import css from "./FilterPanel.module.css"
 import sprite from "../../images/icons.svg"
 
-const FilterPanel = () => {
-  const [location, setLocation] = useState("")
+const FilterPanel = ({ filters, setFilters }) => {
+  const [location, setLocation] = useState(filters.location || "")
 
   const handleLocationChange = (e) => {
-    setLocation(e.target.value)
+    const newLocation = e.target.value
+    setLocation(newLocation)
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      location: newLocation,
+    }))
   }
+
+  const handleEquipmentToggle = (equipment) => {
+    setFilters((prevFilters) => {
+      const normalizedEquipment = equipment.toLowerCase()
+      const isAlreadySelected =
+        prevFilters.equipment.includes(normalizedEquipment)
+      return {
+        ...prevFilters,
+        equipment: isAlreadySelected
+          ? prevFilters.equipment.filter((eq) => eq !== normalizedEquipment)
+          : [...prevFilters.equipment, normalizedEquipment],
+      }
+    })
+  }
+
+  const handleBodyTypeChange = (bodyType) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      bodyType: prevFilters.bodyType === bodyType ? "" : bodyType,
+    }))
+  }
+
   return (
     <div className={css.filtersPanel}>
       {/* Location */}
@@ -24,6 +52,7 @@ const FilterPanel = () => {
             value={location}
             onChange={handleLocationChange}
           />
+
           <svg className={css.locationIcon} width='20' height='20'>
             <use href={`${sprite}#icon-map`}></use>
           </svg>
@@ -34,14 +63,17 @@ const FilterPanel = () => {
 
       {/* Vehicle Equipment Filters */}
       <div className={css.filtersSection}>
-        <h3 className={css.filterHeader}>Vehicle Equipment</h3>
+        <p className={css.filterHeader}>Vehicle Equipment</p>
 
         <hr className={css.customDivider} />
 
         <ul className={css.equipmentFilters}>
           <li className={css.equipmentFilterItem}>
             <label htmlFor='ac' className={css.filterLabel}>
-              <div className={`${css.filterBox} ${css.filterBoxWind}`}>
+              <div
+                className={`${css.filterBox} ${css.filterBoxWind}`}
+                onClick={() => handleEquipmentToggle("ac")}
+              >
                 <div className={css.iconWrapper}>
                   <svg className={css.filterIcon} width='32' height='32'>
                     <use href={`${sprite}#icon-wind`}></use>
@@ -54,8 +86,11 @@ const FilterPanel = () => {
             </label>
           </li>
           <li className={css.equipmentFilterItem}>
-            <label htmlFor='ac' className={css.filterLabel}>
-              <div className={`${css.filterBox} ${css.filterBoxDiagram}`}>
+            <label htmlFor='automatic' className={css.filterLabel}>
+              <div
+                className={`${css.filterBox} ${css.filterBoxDiagram}`}
+                onClick={() => handleEquipmentToggle("Automatic")}
+              >
                 <div className={css.iconWrapper}>
                   <svg className={css.filterIcon} width='32' height='32'>
                     <use href={`${sprite}#icon-diagram`}></use>
@@ -66,8 +101,11 @@ const FilterPanel = () => {
             </label>
           </li>
           <li className={css.equipmentFilterItem}>
-            <label htmlFor='ac' className={css.filterLabel}>
-              <div className={`${css.filterBox} ${css.filterBoxCupHot}`}>
+            <label htmlFor='kitchen' className={css.filterLabel}>
+              <div
+                className={`${css.filterBox} ${css.filterBoxCupHot}`}
+                onClick={() => handleEquipmentToggle("Kitchen")}
+              >
                 <div className={css.iconWrapper}>
                   <svg className={css.filterIcon} width='32' height='32'>
                     <use href={`${sprite}#icon-cupHot`}></use>
@@ -78,8 +116,11 @@ const FilterPanel = () => {
             </label>
           </li>
           <li className={css.equipmentFilterItem}>
-            <label htmlFor='ac' className={css.filterLabel}>
-              <div className={`${css.filterBox} ${css.filterBoxTv}`}>
+            <label htmlFor='tv' className={css.filterLabel}>
+              <div
+                className={`${css.filterBox} ${css.filterBoxTv}`}
+                onClick={() => handleEquipmentToggle("tv")}
+              >
                 <div className={css.iconWrapper}>
                   <svg className={css.filterIcon} width='32' height='32'>
                     <use href={`${sprite}#icon-tv`}></use>
@@ -90,8 +131,11 @@ const FilterPanel = () => {
             </label>
           </li>
           <li className={css.equipmentFilterItem}>
-            <label htmlFor='ac' className={css.filterLabel}>
-              <div className={`${css.filterBox} ${css.filterBoxShower}`}>
+            <label htmlFor='bathroom' className={css.filterLabel}>
+              <div
+                className={`${css.filterBox} ${css.filterBoxShower}`}
+                onClick={() => handleEquipmentToggle("Bathroom")}
+              >
                 <div className={css.iconWrapper}>
                   <svg className={css.filterIcon} width='32' height='32'>
                     <use href={`${sprite}#icon-phShower`}></use>
@@ -110,8 +154,11 @@ const FilterPanel = () => {
 
         <ul className={css.equipmentFilters}>
           <li className={css.equipmentFilterItem}>
-            <label htmlFor='ac' className={css.filterLabel}>
-              <div className={`${css.filterBox} ${css.filterBoxType}`}>
+            <label htmlFor='van' className={css.filterLabel}>
+              <div
+                className={`${css.filterBox} ${css.filterBoxType}`}
+                onClick={() => handleEquipmentToggle("Van")}
+              >
                 <div className={css.iconWrapper}>
                   <svg className={css.filterIcon} width='32' height='32'>
                     <use href={`${sprite}#icon-biGrid1x2`}></use>
@@ -122,8 +169,11 @@ const FilterPanel = () => {
             </label>
           </li>
           <li className={css.equipmentFilterItem}>
-            <label htmlFor='ac' className={css.filterLabel}>
-              <div className={`${css.filterBox} ${css.filterBoxType}`}>
+            <label htmlFor='fully-integrated' className={css.filterLabel}>
+              <div
+                className={`${css.filterBox} ${css.filterBoxType}`}
+                onClick={() => handleEquipmentToggle("Fully Integrated")}
+              >
                 <div className={css.iconWrapper}>
                   <svg className={css.filterIcon} width='32' height='32'>
                     <use href={`${sprite}#icon-biGrid`}></use>
@@ -134,8 +184,11 @@ const FilterPanel = () => {
             </label>
           </li>
           <li className={css.equipmentFilterItem}>
-            <label htmlFor='ac' className={css.filterLabel}>
-              <div className={`${css.filterBox} ${css.filterBoxType}`}>
+            <label htmlFor='alcove' className={css.filterLabel}>
+              <div
+                className={`${css.filterBox} ${css.filterBoxType}`}
+                onClick={() => handleBodyTypeChange("alcove")}
+              >
                 <div className={css.iconWrapper}>
                   <svg className={css.filterIcon} width='32' height='32'>
                     <use href={`${sprite}#icon-biGrid3x3Gap`}></use>
@@ -152,6 +205,14 @@ const FilterPanel = () => {
       </button>
     </div>
   )
+}
+
+FilterPanel.propTypes = {
+  filters: PropTypes.shape({
+    location: PropTypes.string,
+    equipment: PropTypes.arrayOf(PropTypes.string),
+  }),
+  setFilters: PropTypes.func.isRequired,
 }
 
 export default FilterPanel

@@ -50,11 +50,7 @@
   border: 1px solid red;
 }
 
-/* .inputWrapper {
-  margin-bottom: 24px;
-} */
-
-input {
+.formInput {
   display: flex;
   width: 527px;
   height: 60px;
